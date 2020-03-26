@@ -1,0 +1,43 @@
+﻿@model PizzatoryApp.Models.Inventory
+
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+<h1>Inventory</h1>
+
+<h4>Inventory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Inventory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemName" class="control-label"></label>
+                <input asp-for="ItemName" class="form-control" />
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockNeeded" class="control-label"></label>
+                <input asp-for="StockNeeded" class="form-control" />
+                <span asp-validation-for="StockNeeded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnHand" class="control-label"></label>
+                <input asp-for="OnHand" class="form-control" />
+                <span asp-validation-for="OnHand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
