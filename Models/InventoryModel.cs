@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzatoryApp.Models
 {
-    public class Inventory
+    public class InventoryModel
     {
         [Required(ErrorMessage = "You must enter a product name")]
         [StringLength(100, MinimumLength = 3)]

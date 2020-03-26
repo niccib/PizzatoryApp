@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using static DataLibrary.BusinessLogic.InventoryProcessor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PizzatoryApp.Models;
+
 
 namespace PizzatoryApp.Controllers
 {
@@ -29,6 +31,19 @@ namespace PizzatoryApp.Controllers
         }
         public IActionResult Inventory()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Inventory(InventoryModel model)
+        {
+            if (ModelState.IsValid) 
+
+            {
+                int recordsCreated = CreateItem(model.ItemName, 
+                    model.StockNeeded, 
+                    model.OnHand);
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
